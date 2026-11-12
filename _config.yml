@@ -1,0 +1,21 @@
+title: "La vérité coûte que coûte"
+description: "Un livre de Nelson Pereira sur le relativisme, les sophismes, l'hyper-subjectivité et la foi catholique."
+author: "Nelson Pereira"
+lang: fr
+
+# Adresse du site (GitHub Pages)
+url: "https://nelpere.github.io"
+baseurl: "/la-v-rit-co-te-que-co-te"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  toc_levels: 2..3
+
+# Pas de thème externe : la mise en page est dans _layouts/ et assets/.
+# Fichiers qui ne doivent pas être publiés sur le site.
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock

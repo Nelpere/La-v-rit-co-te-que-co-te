@@ -1,0 +1,45 @@
+---
+layout: default
+---
+{% assign chapitres = site.pages | where_exp: "p", "p.path contains 'chapitres/'" | sort: "order" %}
+{% assign idx = 0 %}
+{% for c in chapitres %}{% if c.url == page.url %}{% assign idx = forloop.index0 %}{% endif %}{% endfor %}
+{% assign prev_i = idx | minus: 1 %}
+{% assign next_i = idx | plus: 1 %}
+
+<article class="chapitre">
+  <header>
+    {% if page.numero %}<p class="kicker">Chapitre {{ page.numero }}</p>{% endif %}
+    <h1>{{ page.title }}</h1>
+  </header>
+
+  <nav id="toc" class="toc" aria-label="Table des matières du chapitre" hidden>
+    <p class="toc-title">Table des matières</p>
+    <ol id="toc-list"></ol>
+  </nav>
+
+  <div class="contenu" id="contenu">
+    {{ content }}
+  </div>
+
+  <section class="sources-chapitre" aria-labelledby="sources-titre">
+    <h2 id="sources-titre">Sources</h2>
+    {% if page.sources and page.sources.size > 0 %}
+    <ul>
+      {% for s in page.sources %}<li>{{ s }}</li>{% endfor %}
+    </ul>
+    {% else %}
+    <p class="muted">Aucune source n'est encore renseignée pour ce chapitre.</p>
+    {% endif %}
+    <p class="muted"><a href="{{ '/sources/' | relative_url }}">Index des auteurs et des œuvres</a></p>
+  </section>
+
+  <nav class="pager" aria-label="Chapitres">
+    {% if idx > 0 %}{% assign prev = chapitres[prev_i] %}
+    <a class="prev" href="{{ prev.url | relative_url }}"><span>← Précédent</span>{{ prev.title }}</a>
+    {% else %}<span></span>{% endif %}
+    {% if next_i < chapitres.size %}{% assign next = chapitres[next_i] %}
+    <a class="next" href="{{ next.url | relative_url }}"><span>Suivant →</span>{{ next.title }}</a>
+    {% endif %}
+  </nav>
+</article>
