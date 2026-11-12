@@ -5,7 +5,7 @@ lang: fr
 
 # Adresse du site (GitHub Pages)
 url: "https://nelpere.github.io"
-baseurl: "/la-v-rit-co-te-que-co-te"
+baseurl: "/La-v-rit-co-te-que-co-te"
 
 markdown: kramdown
 kramdown:

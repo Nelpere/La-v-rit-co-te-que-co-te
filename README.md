@@ -2,7 +2,7 @@
 
 Site statique (Markdown + Jekyll) publié par GitHub Pages.
 
-- **Site :** https://nelpere.github.io/la-v-rit-co-te-que-co-te/
+- **Site :** https://nelpere.github.io/La-v-rit-co-te-que-co-te/
 - **Branche de travail et de publication :** `claude/test-saxg15`
 
 ## Structure
